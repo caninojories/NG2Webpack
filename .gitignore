@@ -1,0 +1,14 @@
+dist
+typings
+.vscode
+.DS_Store
+bower_components
+.idea
+*debug.log
+**/*.js
+**/*.map
+!config/*.js
+node_modules
+*.log
+*.error
+karma_html

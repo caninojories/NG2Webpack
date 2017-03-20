@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "declaration": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "pretty": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots" : ["node_modules/@types"]
+  },
+  "compileOnSave": true,
+  "lib": [
+    "dom",
+    "es7"
+  ],
+  "include": [
+    "src/**/*"
+   ],
+   "exclude": [
+     "**/*.spec.ts",
+     "dist"
+   ]
+}
