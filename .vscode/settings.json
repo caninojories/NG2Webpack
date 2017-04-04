@@ -1,0 +1,22 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    "dist": true,
+    "typings": true,
+    ".DS_Store": true,
+    "bower_components": true,
+    ".idea": true,
+    "karma.webpack.conf.js": false,
+    "webpack.config.js": false,
+    "config/*.js": false,
+    "**/*.js.map": {"when": "$(basename)"},
+    "**/*.js": {"when": "$(basename).ts"},
+    "**/*.css": {"when": "$(basename).less"},
+    "node_modules": true,
+    "*.log": true,
+    "*.error.*": true,
+    "*.log.*": true,
+    "karma_html": true
+  },
+"vsicons.presets.angular": true
+}

@@ -1,0 +1,26 @@
+<div class="shoutout-registration">
+  <div class="col-lg-6 col-lg-offset-3 container">
+    <img src="../../../assets/img/Shoutout_logo.png"/>
+    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email Address</label>
+        <input type="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Full Name</label>
+        <input type="fullname" class="form-control" placeholder="Full Name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Confirm Password</label>
+        <input type="confirm password" class="form-control" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-lg btn-default">Register</button>
+      <div class="clearfix"></div>
+      <a class="login" (click)="navigateToLogin()">Log-in</a>
+    </form>
+  </div>
+</div>

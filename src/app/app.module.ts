@@ -1,3 +1,4 @@
+/* angular components */
 import {
   NgModule,
 } from '@angular/core';
@@ -5,18 +6,11 @@ import {
   RouterOutlet
 } from '@angular/router';
 import {
-  Http
-} from '@angular/http';
-import {
   BrowserModule
 }  from '@angular/platform-browser';
 import {
   FormsModule
 } from '@angular/forms';
-import {
-  TranslateModule, TranslateService, TranslateLoader, TranslateStaticLoader
-} from 'ng2-translate';
-
 /* Components */
 import {
   AppComponent
@@ -26,79 +20,33 @@ import {
 } from '../app/components/index/index.component';
 import {
   PageNotFoundComponent
-} from '../app/components/404/page.not.found.component';
-
-/* Shared */
+} from './components/page.not.found.component';
 import {
-  LocalStorage
-} from './shared/local.storage.service';
+  RegistrationModule
+} from './components/registration/registration.module.component';
 import {
-  SessionRenew
-} from './components/commons/renewsessionperclick';
-import {
-  UserSessionPerTableApi
-} from './shared/api/user/user.session.pertable';
-
+  loginModuleComponent
+} from './components/login/login.module.component';
 /* routing */
 import {
   rootRouting
 } from './components/root.route.component';
 
-/*module*/
-import {
-  LobbyModule
-} from './components/lobby/lobby.module.component';
-import {
-  AuthenticateModule
-} from './components/authenticate/authenticate.module.component';
-
-// import {
-//   GameSelectionModule
-// } from './components/gameselection/game.selection.module.component';
-
-import {
-  UserApi
-} from './shared/api/user/user';
-// Audio Service
-// import {
-//   AudioService
-// } from './common/components/audio';
-import {
-  EmitterComponent
-} from './components/commons/emitter.component';
-import {
-  ApiErrorService
-} from './components/commons/api.error.service';
-
 @NgModule({
   imports: [
     BrowserModule,
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
-      deps: [Http]
-    }),
     FormsModule,
+    RegistrationModule,
+    loginModuleComponent,
     rootRouting,
-    LobbyModule,
-    AuthenticateModule,
-    // GameSelectionModule
   ],
-  exports: [TranslateModule],
+  exports: [],
   declarations: [
     AppComponent,
     IndexComponent,
     PageNotFoundComponent
   ],
-  providers: [
-    LocalStorage,
-    UserApi,
-    // AudioService,
-    EmitterComponent,
-    ApiErrorService,
-    SessionRenew,
-    UserSessionPerTableApi
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

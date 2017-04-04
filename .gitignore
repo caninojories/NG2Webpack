@@ -1,6 +1,5 @@
 dist
 typings
-.vscode
 .DS_Store
 bower_components
 .idea
@@ -8,7 +7,11 @@ bower_components
 **/*.js
 **/*.map
 !config/*.js
+!karma.webpack.conf.js
+!webpack.config.js
+config/process.env.js
 node_modules
 *.log
 *.error
+*.log.*
 karma_html

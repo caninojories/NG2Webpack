@@ -16,17 +16,15 @@
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
+    "lib": ["es2017", "dom"],
     "typeRoots" : ["node_modules/@types"]
   },
-  "compileOnSave": true,
-  "lib": [
-    "dom",
-    "es7"
-  ],
+  "compileOnSave": false,
   "include": [
-    "src/**/*"
+    "**/*"
    ],
    "exclude": [
+     "node_modules",
      "**/*.spec.ts",
      "dist"
    ]
