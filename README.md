@@ -19,7 +19,7 @@ Add a mongodb as a DB
 
 Change the db connection here `back/services/mongo`;
 
-Add a api connection here `config/env.js` for the HOSTNAME
+Add an api connection here `config/env.js` for the HOSTNAME
 
 Building
 =======
