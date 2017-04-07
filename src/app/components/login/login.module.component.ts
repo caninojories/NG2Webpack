@@ -3,12 +3,16 @@ import {
   NgModule
 } from '@angular/core';
 import {
-  FormsModule
+  FormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 /* components */
 import {
   LoginComponent
 } from './login.component'
+import {
+  SharedModule
+} from '../commons/shared.component';
 /* routing */
 import {
   loginRouting
@@ -17,6 +21,8 @@ import {
 @NgModule({
   imports : [
     FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     loginRouting
   ],
   declarations:[

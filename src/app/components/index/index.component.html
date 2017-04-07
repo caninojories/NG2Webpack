@@ -1,1 +1,47 @@
+<div class="shoutout-index">
+  <div class="bs-example bs-navbar-top-example" data-example-id="navbar-fixed-to-top">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+         <div class="navbar-header"> 
+           <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false"> 
+            <span class="sr-only">Toggle navigation</span> 
+            <span class="icon-bar"></span> <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+           </button> <a href="#" class="navbar-brand">Shoutout</a> </div>
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+            <!--<p class="navbar-text navbar-right">Signed in as <a class="navbar-link">{{this._user.fullname}}</a></p>-->
+            <div class="dropdown navbar-right">
+              <p class="dropdown-toggle" type="button" data-toggle="dropdown">{{this._user.fullname}}
+                <span class="caret"></span>
+              </p>
+              <ul class="dropdown-menu">
+                <li><a (click)="doLogout();">Logout</a></li>
+              </ul>
+            </div>
+         </div>
+      </div>
+   </nav>
+  </div>
 
+  <div class="container-fluid">
+    <div class="col-lg-8 col-lg-offset-2 body">
+      <img src="../../../assets/img/ShoutOut_bg.png"/>
+      <div class="pictureborder">
+        <h5 class="username">{{this._user.fullname}}</h5>
+      </div>
+      <div class="shoutout">
+        <textarea placeholder="Shout Whatever you want." class="form-control" [(ngModel)]="this._user.post"></textarea>
+        <button class="btn btn-lg btn-danger shout" (click)="doShout()">Shout</button>
+
+        <div class="shoutpage">
+          <p>Shouts</p>
+        </div>
+        <div class="shoutsdata" *ngFor="let item of this._post; let i = index">
+          <div class="shoutspictureborder"></div>
+          <p class="user"><b>{{item.user.fullname}}</b></p>
+          <div class="usershout">{{item.post}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

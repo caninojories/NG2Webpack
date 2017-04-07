@@ -17,7 +17,10 @@ import {
 } from './app.component';
 import {
   IndexComponent
-} from '../app/components/index/index.component';
+} from './components/index/index.component';
+import {
+  CanActivateComponent
+} from './components/index/index.canactivate.component';
 import {
   PageNotFoundComponent
 } from './components/page.not.found.component';
@@ -44,9 +47,9 @@ import {
   declarations: [
     AppComponent,
     IndexComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
-  providers: [],
+  providers: [CanActivateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

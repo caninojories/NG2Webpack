@@ -1,11 +1,14 @@
 import * as moment from 'moment';
 import * as chalk from 'chalk';
 import * as winston from 'winston';
-import {Modules} from './modules';
+import * as args from './argv';
+import {
+  Modules
+} from '../config/modules';
 
 export class Logger {
 	constructor(private file, private message, private type) {
-		if (this.type === 'error' && Modules.get().args.env === 'PRODUCTION' || Modules.get().args.env === 'DEV' || Modules.get().args.env === 'STAGING') {
+		if (this.type === 'error' && args.getArgv('--logs')) {
 			this.logs()[this.type]({
 				file: file,
 				message: message

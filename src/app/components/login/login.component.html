@@ -1,16 +1,20 @@
 <div class="shoutout-login">
   <div class="col-lg-6 col-lg-offset-3 container">
     <img src="../../../assets/img/Shoutout_logo.png"/>
-    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="_loginForm">
       <div class="form-group">
         <label for="exampleInputEmail1">Email Address</label>
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" placeholder="Email" id="email" formControlName="email">
+        <control-messages [control]="this._loginForm.controls.email"></control-messages>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" id="password" formControlName="password">
+        <control-messages [control]="this._loginForm.controls.password"></control-messages>
       </div>
       <button type="submit" class="btn btn-lg btn-default">Log-in</button>
+      <div class="clearfix"></div>
+      <a class="register" (click)="navigateToRegister()">Register</a>
     </form>
   </div>
 </div>

@@ -1,4 +1,6 @@
 import * as Const from './const';
+import {indexRouter} from '../router'
+import * as ejs from 'ejs';
 /* config */
 import {
   Logger
@@ -16,11 +18,12 @@ export class ExpressConfig {
 
   loadExpressConfig() {
     let self = this;
-    // this._app.set('views', Const.root + 'back/loadtest');
+    this._app.set('views', Const.root + '/dist');
     this._app.set('view engine', 'ejs');
-    this._app.engine('html', require('ejs').renderFile);
+    this._app.engine('html', ejs.renderFile);
     this._app.set('x-powered-by', false);
     this._app.set('port', Const.port);
+    this._app.use(this._modules.servestatic(Const.root + '/dist'));
     this._app.use(Modules.get().compression());
     this._app.use(Modules.get().morgan('dev', {
       skip: function (req, res) {
@@ -48,7 +51,7 @@ export class ExpressConfig {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Credentials', 'false');
       res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Dealer, Result');
+      res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization');
 
       if ('OPTIONS' == req.method) {
         res.sendStatus(200);
@@ -77,6 +80,8 @@ export class ExpressConfig {
 
       next({message: 'Not Found Api --> ' + req.originalUrl});
     });
+
+    this._app.use('*', indexRouter);
 
     this._app.use((err, req, res, next) => {
       if (err) {

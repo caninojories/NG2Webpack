@@ -10,4 +10,5 @@ export class User {
   public email    : string;
   public fullname : string;
   public password : string;
+  public post     : string;
 }

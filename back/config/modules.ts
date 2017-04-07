@@ -1,14 +1,16 @@
 import * as path from 'path';
-import * as args from 'yargs';
 import * as bodyparser from 'body-parser';
+import * as bcrypt from 'bcryptjs';
 import * as chalk from 'chalk';
 import * as compression from 'compression';
 import * as fs from 'fs';
 import * as jwtsimple from 'jwt-simple';
 import * as methodoverride from 'method-override';
 import * as moment from 'moment';
+import * as mongoose from 'mongoose';
 import * as morgan from 'morgan';
 import * as oboe from 'oboe';
+import * as servestatic from 'serve-static';
 import * as url from 'url';
 
 export class Modules {
@@ -16,8 +18,8 @@ export class Modules {
 
   static get() {
     return {
-      args          : args.argv,
       bodyparser    : bodyparser,
+      bcrypt        : bcrypt,
       chalk         : chalk,
       compression   : compression,
       fs            : fs,
@@ -25,8 +27,10 @@ export class Modules {
       jwtsimple     : jwtsimple,
       methodoverride: methodoverride,
       moment        : moment,
+      mongoose      : mongoose,
       morgan        : morgan,
       oboe          : oboe,
+      servestatic   : servestatic,
       url           : url
     }
   }

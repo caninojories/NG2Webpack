@@ -4,6 +4,10 @@ let commonConfig = require('./webpack.common.js');
 let helpers = require('./helpers');
 let OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+/* get the data for the env variable*/
+let Env = require('./env');
+Env.development();
+
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
 

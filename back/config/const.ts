@@ -1,9 +1,13 @@
 import {
   Modules
 } from './modules';
+import * as args from '../services/argv';
 
-export const port = process.env.port || Modules.get().args.port || '8082';
-export const root = Modules.get().path.normalize(__dirname + '/../../');
+export const port = process.env.port || args.getArgv('--port') || '8082';
+let path = $dirname;
+path     = Modules.get().path.dirname(path)
+export const root = path;
+
 export const apiVersion = '/api/v1/';
 export let  env;
 export const sha256  = {

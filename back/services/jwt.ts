@@ -1,6 +1,9 @@
 import {
   Modules
 } from '../config/modules';
+import {
+  CONFIG
+} from '../config/env.config';
 
 export class Jwt {
   constructor() {}
@@ -9,11 +12,11 @@ export class Jwt {
 
   encode(_decipher? : any) {
     let payload = {
-      username      : _decipher.username,
-      password      : _decipher.password,
+      email         : _decipher.user.email,
       exp           : this._modules.moment().add(15, 'days').unix()
     };
-    let token = this._modules.jwtsimple.encode(payload, process.env.ENCODEDHASH);
+
+    let token = this._modules.jwtsimple.encode(payload, CONFIG.ENCODEDHASH);
 
     return token;
   }
@@ -24,7 +27,7 @@ export class Jwt {
         reject();
       }
 
-     let token = this._modules.jwtsimple.decode(authorization, process.env.ENCODEDHASH);
+     let token = this._modules.jwtsimple.decode(authorization, CONFIG.ENCODEDHASH);
 
      resolve(token);
    });

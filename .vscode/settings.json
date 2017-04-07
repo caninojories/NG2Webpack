@@ -9,13 +9,16 @@
     "karma.webpack.conf.js": false,
     "webpack.config.js": false,
     "config/*.js": false,
+    "back/config/env.config.ts": true,
     "**/*.js.map": {"when": "$(basename)"},
     "**/*.js": {"when": "$(basename).ts"},
     "**/*.css": {"when": "$(basename).less"},
+    "src/app/shared/settings/app.config.ts": false,
     "node_modules": true,
     "*.log": true,
     "*.error.*": true,
     "*.log.*": true,
+    "ts-node*": true,
     "karma_html": true
   },
 "vsicons.presets.angular": true

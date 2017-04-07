@@ -23,7 +23,7 @@ module.exports = function (config) {
       noInfo: true
     },
 
-    reporters: ['html'],
+    reporters: ['spec'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

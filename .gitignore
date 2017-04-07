@@ -9,9 +9,12 @@ bower_components
 !config/*.js
 !karma.webpack.conf.js
 !webpack.config.js
+!back/config/env.config.ts
+!src/app/shared/settings/app.config.ts
 config/process.env.js
 node_modules
 *.log
 *.error
 *.log.*
+ts-node*
 karma_html

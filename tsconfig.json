@@ -24,6 +24,7 @@
     "**/*"
    ],
    "exclude": [
+     "back",
      "node_modules",
      "**/*.spec.ts",
      "dist"

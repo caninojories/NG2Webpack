@@ -3,12 +3,19 @@ import {
   NgModule
 } from '@angular/core';
 import {
-  FormsModule
+  BrowserModule 
+} from '@angular/platform-browser';
+import {
+  FormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 /* components */
 import {
   RegistrationComponent
 } from './registration.component'
+import {
+  SharedModule
+} from '../commons/shared.component';
 /* routing */
 import {
   registrationRouting
@@ -17,7 +24,9 @@ import {
 @NgModule({
   imports : [
     FormsModule,
-    registrationRouting
+    ReactiveFormsModule,
+    SharedModule,
+    registrationRouting,
   ],
   declarations:[
     RegistrationComponent
