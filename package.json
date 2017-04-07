@@ -5,10 +5,8 @@
   "description": "",
   "scripts": {
     "watch": "tsc -w",
-    "start": "concurrently \"npm run watch\" \"npm run serve:build\"",
     "webdriver:update": "webdriver-manager update --standalone false --gecko false",
-    "test": "concurrently \"npm run watch\" \"karma start config/karma.conf.js\"",
-    "test:once": "karma start config/karma.conf.js --single-run",
+    "test": "karma start config/karma.conf.js --single-run",
     "tsc": "tsc",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "start:webpack": "webpack-dev-server --inline --progress --port 8081",
@@ -16,7 +14,7 @@
     "start:dev": "concurrently \"npm run start:webpack\" \"npm run node:start:webpack\"",
     "build:webpack": "rimraf dist && webpack --config config/webpack.prod.js",
     "node:build:webpack": "concurrently \"webpack --config back/webpack.prod.js\" \"npm run build:webpack\" & nodemon dist/app.server.js",
-    "postinstall": "yarn global add karma-spec-reporter karma-chrome-launcher karma-cli karma-jasmine karma-webpack karma-sourcemap-loader"
+    "postinstall": "yarn global add karma-spec-reporter karma-chrome-launcher karma-cli karma-jasmine karma-webpack karma-sourcemap-loader ts-node"
   },
   "keywords": [],
   "author": "Jo-Ries Canino",
