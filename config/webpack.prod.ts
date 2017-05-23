@@ -1,12 +1,12 @@
-var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
+import * as webpack from 'webpack';
+import * as webpackMerge from 'webpack-merge';
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
+let commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
-let Env = require('./env');
-Env.production();
+const Envi  = process.env.NODE_ENV = process.env.ENV = 'production';
+let envi    = require('./env.js');
+let environment = envi[Envi]();
 module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
@@ -27,7 +27,9 @@ module.exports = webpackMerge(commonConfig, {
     new ExtractTextPlugin('[name].[hash].css'),
     new webpack.DefinePlugin({
       'process.env': {
-        'ENV': JSON.stringify(ENV)
+        'BUILDERHOSTNAME': JSON.stringify(environment.HOSTNAME),
+        'BUILDERHOSTNAMEPORT': JSON.stringify(environment.HOSTNAMEPORT),
+        'BUILDERVERSION': JSON.stringify(environment.HOSTNAMEVERSION)
       }
     }),
     new webpack.LoaderOptionsPlugin({

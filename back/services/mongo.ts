@@ -10,7 +10,7 @@ export class Mongo {
   private _connection : String;
   private _modules  = Modules.get();
 
-  init() {
+  init() : any {
     let self = this;
     if (self._modules.mongoose.connection.readyState === 0) {
       console.log(this._modules.chalk.red.bold('Mongo DB Started'));
@@ -45,8 +45,8 @@ export class Mongo {
           process.exit(0);
         });
       });
-
-      return self._modules.mongoose.connect(process.env.BUILDER || self._connection || 'mongodb://192.168.200.6:27017/builder');
+      console.log(process.env.BUILDER || self._connection || 'mongodb://192.168.200.6:27017/builder');
+      return self._modules.mongoose.connect(process.env.BUILDER || self._connection || 'mongodb://192.168.0.137:27017/builder');
     }
   }
 }

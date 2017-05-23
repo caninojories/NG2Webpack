@@ -5,6 +5,9 @@ import {
 import {
   Jwt
 } from '../../services/jwt';
+import {
+  Logger
+} from '../../services/logger';
 
 export class UserApi {
   constructor(private _app: any /*express.Application*/) {}
@@ -68,7 +71,7 @@ export class UserApi {
         })
       })
       .catch(error => {
-        new Logger('post.ts[api/user][71]', error.message ? error.message : error, 'error')
+        new Logger('user.ts[api/user][71]', error.message ? error.message : error, 'error')
 
         res.status(503)
         .send({
@@ -95,7 +98,7 @@ export class UserApi {
           if (!error && equal) {
             /* create a jwt here */
             let token = this._jwt.encode(_body)
-            
+
             res.status(200)
             .send({
               code: 1,

@@ -25,7 +25,7 @@ export class PostApi {
     .route(Const.apiVersion + 'post')
     .post((req, res, next) => {
       let _body = req.body;
-      let _user = {};
+      let _user = <any>{};
 
       /*get the user details by getting the authentication*/
       this._jwt.decode(req.headers.authorization)

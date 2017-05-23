@@ -2,6 +2,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import * as CONFIG from './shared/settings/app.config';
 
 @Component({
     selector: 'main-app',
@@ -14,5 +15,7 @@ import {
 export class AppComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(CONFIG);
+  }
 }
