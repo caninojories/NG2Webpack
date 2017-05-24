@@ -45,7 +45,7 @@ export class Mongo {
           process.exit(0);
         });
       });
-      console.log(process.env.BUILDER || self._connection || 'mongodb://192.168.200.6:27017/builder');
+
       return self._modules.mongoose.connect(process.env.BUILDER || self._connection || 'mongodb://192.168.0.137:27017/builder');
     }
   }

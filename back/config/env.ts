@@ -1,21 +1,16 @@
-let fs = require('fs');
+import * as fs from 'fs';
 
-export class ENV {
-  constructor() {}
-
-  compile() {
-    let encodedhash = process.env.ENCODEDHASH || '6e259c44f97ff663ab5f4668a6134a2e63a71877956464c9c3820f17a0893c19';
-
-    fs.writeFile('back/config/env.config.ts',
-      'export let CONFIG = {' +
-      '"ENCODEDHASH": "' + encodedhash.toString() + '"}'
-      , 'utf8', () => {
-      /*
-        * Done here
-        */
-        console.log('done...');
-    });
+module.exports = {
+  development: function() {
+    return {
+      BUILDER: 'mongodb://192.168.0.137:27017/builders',
+      ENCODEDHASH: '123'
+    }
+  },
+  production: function() {
+    return {
+      BUILDER: ':8113',
+      ENCODEDHASH: '123'
+    }
   }
 }
-
-new ENV().compile();

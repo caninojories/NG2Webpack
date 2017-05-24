@@ -2,9 +2,10 @@
 import * as webpack from 'webpack';
 import * as fs from 'fs';
 import * as path from 'path';
-// const webpack = require('webpack');
-// const fs = require('fs')
-// const path = require("path")
+
+const Envi      = process.env.NODE_ENV = process.env.ENV = 'development';
+let envi        = require('./config/env.js');
+let environment = envi[Envi]();
 
 module.exports = {
   entry: {
@@ -42,5 +43,13 @@ module.exports = {
       exclude: /node_modules/,
       loaders: ['ts-loader']
     }]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'BUILDER': JSON.stringify(environment.BUILDER),
+        'ENCODEDHASH': JSON.stringify(environment.ENCODEDHASH)
+      }
+    })
+  ]
 };
