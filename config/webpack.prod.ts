@@ -1,8 +1,8 @@
 import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+let helpers = require('./helpers');
 
 const Envi  = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 let envi    = require('./env.js');

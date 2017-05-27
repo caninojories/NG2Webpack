@@ -3,7 +3,7 @@ import {
 } from '../config/modules';
 
 export class Mongo {
-  constructor(private connection? :String) {
+  constructor(private connection? : String) {
     this._connection = this.connection;
   }
 
@@ -12,14 +12,19 @@ export class Mongo {
 
   init() : any {
     let self = this;
+    let connecting = 0;
     if (self._modules.mongoose.connection.readyState === 0) {
       console.log(this._modules.chalk.red.bold('Mongo DB Started'));
 
       let connectingState;
 
       this._modules.mongoose.connection.on('connecting', _ => {
-        connectingState = setInterval(_ => {
-          console.log(self._modules.chalk.green.bold('Connecting...'));
+        connectingState = setInterval(() => {
+          connecting++;
+
+          if (connecting <= 5) {
+            console.log(self._modules.chalk.green.bold('Connecting...'));
+          }
         }, 300);
       });
 

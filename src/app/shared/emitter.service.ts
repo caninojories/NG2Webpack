@@ -1,9 +1,12 @@
-import {Injectable, EventEmitter} from '@angular/core'
+import {
+  Injectable,
+  EventEmitter
+} from '@angular/core';
 
 @Injectable()
 export class EmitterService {
-  private static _emitters: { [channel: string]: EventEmitter<any> } = {};
-  static get(channel: string): EventEmitter<any> {
+  private static _emitters : { [channel : string] : EventEmitter<any> } = {};
+  static get(channel : string) : EventEmitter<any> {
     if (!this._emitters[channel]) {
       this._emitters[channel] = new EventEmitter();
     }
@@ -11,7 +14,7 @@ export class EmitterService {
     return this._emitters[channel];
   }
 
-  static remove(channel: string) {
+  static remove(channel : string) {
     this._emitters[channel].unsubscribe();
     delete this._emitters[channel];
     return this._emitters[channel];

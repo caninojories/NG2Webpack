@@ -9,4 +9,4 @@ import '@angular/router';
 // Other vendors for example jQuery, Lodash or Bootstrap
 import './styles.less';
 import 'jquery/dist/jquery';
-import 'bootstrap/js/dropdown'
+import 'bootstrap/js/dropdown';

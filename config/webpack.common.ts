@@ -1,7 +1,7 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers.js');
+let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let helpers = require('./helpers.js');
 
 module.exports = {
   entry: {
@@ -13,7 +13,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js']
   },
-
+  devtool: 'source-map',
   module: {
     rules: [
       {

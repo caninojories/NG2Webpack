@@ -13,7 +13,7 @@ let env = {
     ENCODEDHASH: '123',
     ENCODEDHASHSTRING: 123
   }
-}
+};
 
 let config = _.defaultsDeep({}, defaults, env);
 module.exports = config[process.env.NODE_ENV ? process.env.NODE_ENV : 'development'];

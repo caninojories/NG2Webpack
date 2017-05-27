@@ -16,7 +16,7 @@ import {
 } from '../../services/cache';
 
 export class PostApi {
-  constructor(private _app: any /*express.Application*/) {}
+  constructor(private _app : any /*express.Application*/) {}
 
   private _jwt = new Jwt();
 
@@ -60,7 +60,7 @@ export class PostApi {
         });
       })
       .catch(error => {
-        new Logger('post.ts[api/post][50]', error.message ? error.message : error, 'error')
+        new Logger('post.ts[api/post][50]', error.message ? error.message : error, 'error');
 
         res.status(503)
         .send({
@@ -79,7 +79,7 @@ export class PostApi {
       .then(user => {
         return Post.find({})
         .sort({'createdAt': -1})
-        .exec()
+        .exec();
       })
       .then(response => {
 
@@ -89,10 +89,10 @@ export class PostApi {
           data: {
             post: response
           }
-        })
+        });
       })
       .catch(error => {
-        new Logger('post.ts[api/user][92]', error.message ? error.message : error, 'error')
+        new Logger('post.ts[api/user][92]', error.message ? error.message : error, 'error');
 
         res.status(503)
         .send({

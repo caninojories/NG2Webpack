@@ -14,15 +14,15 @@ module.exports = {
     extensions: ['.ts']
   },
   target: 'node',
-  externals: fs.readdirSync("node_modules")
+  externals: fs.readdirSync('node_modules')
   .reduce(function(acc, mod) {
-    if (mod === ".bin") {
-      return acc
+    if (mod === '.bin') {
+      return acc;
     }
 
-    acc[mod] = "commonjs " + mod;
+    acc[mod] = 'commonjs ' + mod;
 
-    return acc
+    return acc;
   }, {}),
   node: {
     console: false,

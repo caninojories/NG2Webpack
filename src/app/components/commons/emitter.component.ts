@@ -14,7 +14,7 @@ export class EmitterComponent {
   }
 
   user() {
-    
+
     return EmitterService.get('user');
   }
 }

@@ -7,7 +7,7 @@ import {
 import {
   FormBuilder,
   Validators
-} from '@angular/forms'
+} from '@angular/forms';
 import {
   UserApi
 } from '../../shared/api/user';
@@ -41,7 +41,7 @@ export class LoginComponent {
     });
   }
 
-  private _loginForm: any;
+  private _loginForm : any;
   private _user = new User();
 
   onSubmit() {
@@ -67,10 +67,10 @@ export class LoginComponent {
     this._router.navigate(['/registration']);
   }
 
-  /* we can make a service for the list of validators 
+  /* we can make a service for the list of validators
    * but for this demo let's to this now.
    * */
-  emailValidator(control) {
+  emailValidator(control) {// tslint:disable:max-line-length
     if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
       return null;
     } else {

@@ -12,8 +12,9 @@ import { ValidationComponent } from './validation.component';
   `]
 })
 export class ValidationMessages {
-  @Input() control: FormControl;
-  constructor() { }
+  constructor() {}
+
+  @Input() control : FormControl;
 
   get errorMessage() {
     for (let propertyName in this.control.errors) {

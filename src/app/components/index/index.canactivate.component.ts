@@ -13,13 +13,13 @@ import {
 } from '../../shared/local.storage.service';
 
 @Injectable()
-export class CanActivateComponent implements CanActivate{
+export class CanActivateComponent implements CanActivate {
   constructor(
     private _router : Router,
-    private _localStorage: LocalStorage
+    private _localStorage : LocalStorage
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route : ActivatedRouteSnapshot, state : RouterStateSnapshot) {
     let token = this._localStorage.getToken('builder-token');
 
     if (token) {

@@ -13,4 +13,4 @@ export let getArgv = function (arg) {
   })[0];
 
   return data ? data.split('=')[1] : false;
-}
+};

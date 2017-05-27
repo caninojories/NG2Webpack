@@ -1,5 +1,5 @@
 import * as Const from './const';
-import {indexRouter} from '../router'
+import {indexRouter} from '../router';
 import * as ejs from 'ejs';
 /* config */
 import {
@@ -40,7 +40,7 @@ export class ExpressConfig {
     }));
     this._app.use(Modules.get().methodoverride(function(req, res) {
       if (req['body'] && typeof req['body'] === 'object' && '_method' in req['body']) {
-        var method = req['body']._method;
+        let method = req['body']._method;
         delete req['body']._method;
 
         return method;
@@ -52,26 +52,28 @@ export class ExpressConfig {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Credentials', 'false');
       res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization');
+      res.setHeader('Access-Control-Allow-Headers', `Access-Control-Allow-Headers,
+        Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,
+        Access-Control-Request-Headers, Authorization`);
 
-      if ('OPTIONS' == req.method) {
+      if ('OPTIONS' === req.method) {
         res.sendStatus(200);
       } else {
         next();
       }
     });
 
-    this._app.use(function(req, res, next) {
-      res.setTimeout(5000, function() {
-        res.status(408)
-        .send({
-          code    : 0,
-          message : 'Request has timed out.'
-        });
-      });
-
-      next();
-    });
+    // this._app.use(function(req, res, next) {
+    //   res.setTimeout(5000, function() {
+    //     res.status(408)
+    //     .send({
+    //       code    : 0,
+    //       message : 'Request has timed out.'
+    //     });
+    //   });
+    //
+    //   next();
+    // });
   }
 
   loadExpressMiddleware() {

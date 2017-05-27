@@ -1,6 +1,6 @@
 import {
   Component
-} from '@angular/core'
+} from '@angular/core';
 import {
   Router
 } from '@angular/router';
@@ -32,9 +32,9 @@ import {
 export class RegistrationComponent {
   constructor(
     private _router : Router,
-    private _formBuilder: FormBuilder,
-    private _userApi: UserApi,
-    private _localStorage: LocalStorage
+    private _formBuilder : FormBuilder,
+    private _userApi : UserApi,
+    private _localStorage : LocalStorage
   ) {
     this._registrationForm = this._formBuilder.group({
       'email': ['', [Validators.required, this.emailValidator]],
@@ -44,7 +44,7 @@ export class RegistrationComponent {
     });
   }
 
-  private _registrationForm: any;
+  private _registrationForm : any;
 
   onSubmit(event) {
     let _user = new User({
@@ -63,14 +63,14 @@ export class RegistrationComponent {
 
     }, () => {
       this._router.navigate(['/']);
-    })
+    });
   }
 
   navigateToLogin() {
-    this._router.navigate(['/login'])
+    this._router.navigate(['/login']);
   }
 
-  emailValidator(control) {
+  emailValidator(control) { // tslint:disable:max-line-length
     if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
       return null;
     } else {
@@ -80,9 +80,9 @@ export class RegistrationComponent {
 
   passwordValidator(control) {
     if (control.value.match(/.*[0-9].*/)) {
-      return null
+      return null;
     } else {
-      return {'invalidPassword' : true}
+      return {'invalidPassword' : true};
     }
   }
 

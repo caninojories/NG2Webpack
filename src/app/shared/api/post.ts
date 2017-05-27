@@ -23,8 +23,8 @@ import {
 @Injectable()
 export class PostApi {
   constructor(
-    private _sessionExpired: SessionExpired,
-    private _localStorage: LocalStorage
+    private _sessionExpired : SessionExpired,
+    private _localStorage : LocalStorage
   ) {}
 
   saveOne(post) {
@@ -51,7 +51,7 @@ export class PostApi {
           this._sessionExpired.check(error)
           .subscribe(response => {
 
-          }, error => {
+          }, () => { // this needs to refactor
 
           }, _ => {
 
@@ -84,7 +84,7 @@ export class PostApi {
           this._sessionExpired.check(error)
           .subscribe(response => {
 
-          }, error => {
+          }, () => { // this needs to refactor
 
           }, _ => {
 

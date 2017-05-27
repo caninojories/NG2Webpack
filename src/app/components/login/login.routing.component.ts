@@ -4,7 +4,7 @@ import {
 import {
   Routes,
   RouterModule
-} from '@angular/router'
+} from '@angular/router';
 import {
   LoginComponent
 } from './login.component';
@@ -12,6 +12,6 @@ import {
 const loginRoutes : Routes = [{
   path: 'login',
   component: LoginComponent
-}]
+}];
 
 export const loginRouting : ModuleWithProviders = RouterModule.forChild(loginRoutes);

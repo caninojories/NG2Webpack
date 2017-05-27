@@ -9,7 +9,7 @@ import {
 } from './post/post';
 
 export class Api {
-  constructor(private _app: any /*express.Application*/) {
+  constructor(private _app : any /*express.Application*/) {
     this._userApi = new UserApi(this._app);
     this._postApi = new PostApi(this._app);
   }

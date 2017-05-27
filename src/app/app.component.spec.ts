@@ -7,7 +7,7 @@ describe('App', () => {
     TestBed.configureTestingModule({ declarations: [AppComponent], imports: [RouterTestingModule]});
   });
 
-  it ('should work', async(() => {
+  it ('should create App Component', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
 
     expect(fixture.componentInstance instanceof AppComponent).toBe(true, 'should create AppComponent');

@@ -18,8 +18,8 @@ import {
 @Injectable()
 export class SessionExpired {
   constructor(
-    private _router: Router,
-    private _localStorage: LocalStorage
+    private _router : Router,
+    private _localStorage : LocalStorage
   ) {}
 
   check(error) {

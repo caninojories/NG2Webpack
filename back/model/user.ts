@@ -34,9 +34,9 @@ UserSchema.pre('save', function(next) {
       return next(err);
     }
 
-    modules.bcrypt.hash(user.password, salt, function(err, hash) {
-      if (err) {
-        return next (err);
+    modules.bcrypt.hash(user.password, salt, function(error, hash) {
+      if (error) {
+        return next (error);
       }
 
       user.password = hash;

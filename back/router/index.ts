@@ -1,14 +1,13 @@
 import { Router, Request, Response } from 'express';
 
-const router: Router = Router();
+const router : Router = Router();
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now());
   next();
 });
 
 router.get('/', (req, res) => {
-  res.render('index.html')
+  res.render('index.html');
 });
 
-export const indexRouter: Router = router;
-
+export const indexRouter : Router = router;

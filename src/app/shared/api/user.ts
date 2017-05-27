@@ -23,8 +23,8 @@ import {
 @Injectable()
 export class UserApi {
   constructor(
-    private _sessionExpired: SessionExpired,
-    private _localStorage: LocalStorage
+    private _sessionExpired : SessionExpired,
+    private _localStorage : LocalStorage
   ) {}
 
   saveOne(user) {
@@ -47,7 +47,7 @@ export class UserApi {
           this._sessionExpired.check(error)
           .subscribe(response => {
 
-          }, error => {
+          }, () => { // this needs to refactor
 
           }, _ => {
 
@@ -80,7 +80,7 @@ export class UserApi {
           this._sessionExpired.check(error)
           .subscribe(response => {
 
-          }, error => {
+          }, () => { // this needs to refactor
 
           }, _ => {
 
@@ -112,7 +112,7 @@ export class UserApi {
           this._sessionExpired.check(error)
           .subscribe(response => {
 
-          }, error => {
+          }, () => { // this needs to refactor
 
           }, _ => {
 

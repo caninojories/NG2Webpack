@@ -32,6 +32,6 @@ export class Modules {
       oboe          : oboe,
       servestatic   : servestatic,
       url           : url
-    }
+    };
   }
 }

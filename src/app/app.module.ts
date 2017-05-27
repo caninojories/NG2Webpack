@@ -28,7 +28,7 @@ import {
   RegistrationModule
 } from './components/registration/registration.module.component';
 import {
-  loginModuleComponent
+  LoginModuleComponent
 } from './components/login/login.module.component';
 /* routing */
 import {
@@ -40,7 +40,7 @@ import {
     BrowserModule,
     FormsModule,
     RegistrationModule,
-    loginModuleComponent,
+    LoginModuleComponent,
     rootRouting,
   ],
   exports: [],
@@ -53,6 +53,5 @@ import {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  consstructor() {
-  }
+  consstructor() {}
 }

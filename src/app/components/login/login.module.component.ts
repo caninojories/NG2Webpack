@@ -9,7 +9,7 @@ import {
 /* components */
 import {
   LoginComponent
-} from './login.component'
+} from './login.component';
 import {
   SharedModule
 } from '../commons/shared.component';
@@ -25,8 +25,8 @@ import {
     SharedModule,
     loginRouting
   ],
-  declarations:[
+  declarations : [
     LoginComponent
   ]
 })
-export class loginModuleComponent {}
+export class LoginModuleComponent {}

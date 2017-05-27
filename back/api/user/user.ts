@@ -10,7 +10,7 @@ import {
 } from '../../services/logger';
 
 export class UserApi {
-  constructor(private _app: any /*express.Application*/) {}
+  constructor(private _app : any /*express.Application*/) {}
 
   private _jwt = new Jwt();
 
@@ -27,7 +27,6 @@ export class UserApi {
       });
 
       user.save((error) => {
-        console.log(error);
         error && res.status(501)
         .send({
           code: 0,
@@ -35,7 +34,7 @@ export class UserApi {
         });
 
         /* add jwt here */
-        let token = this._jwt.encode(_body)
+        let token = this._jwt.encode(_body);
 
         !error && res.status(200)
         .send({
@@ -58,7 +57,7 @@ export class UserApi {
         return User.findOne({
           email: user.email
         })
-        .exec()
+        .exec();
       })
       .then(response => {
 
@@ -68,10 +67,10 @@ export class UserApi {
           data: {
             user: response
           }
-        })
+        });
       })
       .catch(error => {
-        new Logger('user.ts[api/user][71]', error.message ? error.message : error, 'error')
+        new Logger('user.ts[api/user][71]', error.message ? error.message : error, 'error');
 
         res.status(503)
         .send({
@@ -97,7 +96,7 @@ export class UserApi {
         user.comparePassword(_body.user.password, (error, equal) => {
           if (!error && equal) {
             /* create a jwt here */
-            let token = this._jwt.encode(_body)
+            let token = this._jwt.encode(_body);
 
             res.status(200)
             .send({
@@ -112,10 +111,10 @@ export class UserApi {
             .send({
               code: 0,
               message: 'authentication fail.'
-            })
+            });
           }
         });
-      })
+      });
     });
   }
 }

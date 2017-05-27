@@ -1,6 +1,6 @@
 import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as OpenBrowserPlugin from 'open-browser-webpack-plugin';
 let commonConfig = require('./webpack.common.js');
 let helpers = require('./helpers.js');
@@ -25,14 +25,14 @@ module.exports = webpackMerge(commonConfig, {
     new OpenBrowserPlugin({
       port: 8081,
       url: 'http://localhost:8081'
-    }),/*it opens default browser*/
+    }), /* it opens default browser */
     new webpack.DefinePlugin({
       'process.env': {
         'BUILDERHOSTNAME': JSON.stringify(environment.HOSTNAME),
         'BUILDERHOSTNAMEPORT': JSON.stringify(environment.HOSTNAMEPORT),
         'BUILDERVERSION': JSON.stringify(environment.HOSTNAMEVERSION)
       }
-    }),
+    })
   ],
 
   devServer: {

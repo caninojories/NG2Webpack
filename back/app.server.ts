@@ -21,27 +21,7 @@ import {
  *
  * @class Server
  */
-declare let global;
 export class Server {
-  public app: express.Application;
-  public expressConfig: ExpressConfig;
-  public api: Api;
-  public mongo = new Mongo();
-  public modules = Modules.get();
-  static bootstrap(): Server;
-
-  /**
-  * Bootstrap the application.
-  *
-  * @class Server
-  * @method bootstrap
-  * @static
-  * @return {ng.auto.IInjectorService} Returns the newly created injector for this app.
-  */
-  public static bootstrap(): Server {
-    return new Server();
-  }
-
   /**
   * Constructor.
   *
@@ -49,7 +29,7 @@ export class Server {
   * @constructor
   */
   constructor() {
-    //create expressjs application
+    // create expressjs application
     this.app            = express();
     this.expressConfig  = new ExpressConfig(this.app);
     this.api            = new Api(this.app);
@@ -72,6 +52,24 @@ export class Server {
       new Logger('app.server.ts[api/room][72]', p, 'error');
       new Logger('app.server.ts[api/room][72]', 'REASON: ' + reason, 'error');
     });
+  }
+
+  public app : express.Application;
+  public expressConfig : ExpressConfig;
+  public api : Api;
+  public mongo = new Mongo();
+  public modules = Modules.get();
+  static bootstrap() : Server;
+  /**
+  * Bootstrap the application.
+  *
+  * @class Server
+  * @method bootstrap
+  * @static
+  * @return {ng.auto.IInjectorService} Returns the newly created injector for this app.
+  */
+  public static bootstrap() : Server {
+    return new Server();
   }
 
   getExpressInstance() {

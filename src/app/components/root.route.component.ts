@@ -12,7 +12,7 @@ import {
   PageNotFoundComponent
 } from './page.not.found.component';
 
-const appRoutes: Routes = [{
+const appRoutes : Routes = [{
   path: '', component: IndexComponent,
   canActivate: [CanActivateComponent]
 }, {

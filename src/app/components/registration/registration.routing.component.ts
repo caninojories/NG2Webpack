@@ -14,4 +14,4 @@ const registrationRoutes : Routes = [{
   component: RegistrationComponent
 }];
 
-export const registrationRouting: ModuleWithProviders = RouterModule.forChild(registrationRoutes);
+export const registrationRouting : ModuleWithProviders = RouterModule.forChild(registrationRoutes);

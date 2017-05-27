@@ -26,10 +26,10 @@ import {
 })
 export class IndexComponent implements OnInit {
   constructor(
-    private _router: Router,
-    private _userApi: UserApi,
-    private _postApi: PostApi,
-    private _localStorage: LocalStorage
+    private _router : Router,
+    private _userApi : UserApi,
+    private _postApi : PostApi,
+    private _localStorage : LocalStorage
   ) {}
 
   private _user = GlobalVariable._user;
@@ -41,7 +41,7 @@ export class IndexComponent implements OnInit {
   }
 
   doShout() {
-    if (!this._user.post) {return;}
+    if (!this._user.post) { return; }
 
     this._postApi.saveOne(this._user.post)
     .subscribe(response => {
@@ -50,14 +50,13 @@ export class IndexComponent implements OnInit {
         user: {
           fullname: response.data.user.fullname
         }
-      })
+      });
 
       this._user.post = '';
     });
   }
 
   doLogout() {
-    console.log('logout')
     this._localStorage.removeToken('builder-token');
     window.location.reload();
   }

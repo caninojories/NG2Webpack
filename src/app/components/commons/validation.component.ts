@@ -1,6 +1,6 @@
 
 export class ValidationComponent {
-  static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
+  static getValidatorErrorMessage(validatorName : string, validatorValue? : any) {
     let config = {
         'required': 'Required',
         'invalidEmailAddress': 'Invalid email address',

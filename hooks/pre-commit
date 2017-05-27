@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".ts$")
+
+if [[ "$STAGED_FILES" = "" ]]; then
+  exit 0
+fi
+
+PASS=true
+
+printf "\nValidating Javascript:\n"
+
+# Check for tslint
+which tslint &> /dev/null
+if [[ "$?" == 1 ]]; then
+  printf "\t\033[41mPlease install tslint (yarn global add tslint)\033[0m"
+  exit 1
+fi
+
+npm run tslintcheck
+if [[ "$?" != 0 ]]; then
+  PASS=false
+fi
+
+printf "\nTSLINT Validation Complete\n\n"
+
+if ! $PASS; then
+    printf "\033[31mCOMMIT FAILED:\033[0m Your commit contains files that failed TSLINT.\n"
+    printf "Please fix the TSLINT errors and try to commit again.\n\n"
+exit 1
+fi
+
+exit $?

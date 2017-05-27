@@ -3,7 +3,7 @@ import {
   NgModule
 } from '@angular/core';
 import {
-  BrowserModule 
+  BrowserModule
 } from '@angular/platform-browser';
 import {
   FormsModule,
@@ -12,7 +12,7 @@ import {
 /* components */
 import {
   RegistrationComponent
-} from './registration.component'
+} from './registration.component';
 import {
   SharedModule
 } from '../commons/shared.component';
@@ -28,7 +28,7 @@ import {
     SharedModule,
     registrationRouting,
   ],
-  declarations:[
+  declarations : [
     RegistrationComponent
   ]
 })
