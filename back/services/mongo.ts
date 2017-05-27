@@ -7,7 +7,7 @@ export class Mongo {
     this._connection = this.connection;
   }
 
-  private _connection : String;
+  private _connection;
   private _modules  = Modules.get();
 
   init() : any {
@@ -46,7 +46,7 @@ export class Mongo {
         });
       });
 
-      return self._modules.mongoose.connect(process.env.BUILDER || self._connection || 'mongodb://192.168.0.137:27017/builder');
+      return self._modules.mongoose.connect(self._connection || 'mongodb://192.168.0.140:27017/builder');
     }
   }
 }

@@ -3,9 +3,8 @@ import * as webpack from 'webpack';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const Envi      = process.env.NODE_ENV = process.env.ENV = 'development';
-let envi        = require('./config/env.js');
-let environment = envi[Envi]();
+let Envi   = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
+let config = require('./config/env.js');
 
 module.exports = {
   entry: {
@@ -47,8 +46,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'BUILDER': JSON.stringify(environment.BUILDER),
-        'ENCODEDHASH': JSON.stringify(environment.ENCODEDHASH)
+        'NODE_ENV': JSON.stringify(Envi),
+        'BUILDER': JSON.stringify(config.BUILDER),
+        'ENCODEDHASH': JSON.stringify(config.ENCODEDHASH)
       }
     })
   ]

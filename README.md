@@ -17,13 +17,17 @@ Pre-requirements
 
 Add a mongodb as a DB
 
-Change the db connection here `back/services/mongo`;
+Change the db connection here `in env.ts or in defaults.ts`;  
 
 Add an api connection here `config/env.js` for the HOSTNAME
+
+Add an `env.ts` also in config
+These data's include the connection in the rest api (for url, port and version)
 
 Building
 =======
 
-To build your application in dev mode, you can simply run `ts-node back/config/env.ts && sudo PORT=--port=8113 LOGS=--logs=true npm run start:dev`. This will copy the files to the dist directory.
+To build your application in dev mode, you can simply run `PORT=--port=8113 LOGS=--logs=true npm run start:dev`.   
+This will copy the files to the dist and build directory.
 
-You can run your application in build mode `npm run node:build:webpack`
+You can run your application in build mode `NODE_ENV=production npm run start:prod"`

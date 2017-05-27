@@ -6,7 +6,7 @@ let commonConfig = require('./webpack.common.js');
 let helpers = require('./helpers.js');
 
 /* get the data for the env variable*/
-const Envi = process.env.NODE_ENV = process.env.ENV = 'production';
+const Envi = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 let envi = require('./env.js');
 let environment = envi[Envi]();
 

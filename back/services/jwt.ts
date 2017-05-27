@@ -1,9 +1,7 @@
 import {
   Modules
 } from '../config/modules';
-import {
-  CONFIG
-} from '../config/env.config';
+let CONFIG = require('../config/env.js');
 
 export class Jwt {
   constructor() {}
