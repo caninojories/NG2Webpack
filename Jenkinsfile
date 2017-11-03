@@ -18,6 +18,7 @@ pipeline {
         }
         stage('Install Dependencies') {
           steps {
+            sh 'nvm use v8.4.0'
             sh 'npm install -g yarn'
             sh 'yarn install'
           }
