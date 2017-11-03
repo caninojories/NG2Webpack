@@ -8,9 +8,14 @@ pipeline {
             echo 'Running Stages of Build'
           }
         }
-        stage('Install NPM') {
+        stage('Install NVM') {
           steps {
             nvm(version: '8.4.0', nvmInstallURL: 'https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh', nvmNodeJsOrgMirror: 'https://npm.taobao.org/mirrors/node', nvmIoJsOrgMirror: 'https://iojs.org/dist')
+          }
+        }
+        stage('Install Dependencies') {
+          steps {
+            sh 'npm install'
           }
         }
       }
